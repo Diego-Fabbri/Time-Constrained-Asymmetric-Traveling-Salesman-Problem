@@ -47,8 +47,8 @@ public class Data {
     }
 
     public static double[] Upper_Bounds() {
-        double[] LB = {1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000};
-        return LB;
+        double[] UB = {1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000};
+        return UB;
     }
 
 }

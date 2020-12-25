@@ -37,13 +37,15 @@ public class ATSPTW_Model {
 
     protected void addVariables() throws IloException {
         for (int i = 0; i <= n; i++) {
-            t[i] = (IloIntVar) model.numVar(0, Double.MAX_VALUE, IloNumVarType.Float, "t[" + i + "]");
+            
+            t[i] = (IloIntVar) model.numVar(0, Float.MAX_VALUE, IloNumVarType.Float, "t[" + i + "]");
 
         }
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
 
-                y[i][j] = (IloIntVar) model.numVar(0, 0, IloNumVarType.Int, "y[" + i + "][" + j + "]");
+                y[i][j] = (IloIntVar) model.numVar(0, 1, IloNumVarType.Int, "y[" + i + "][" + j + "]");
+               
             }
 
         }
@@ -69,15 +71,15 @@ public class ATSPTW_Model {
         }
             // Constrain (3)
         
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
+        for (int i = 1; i < n; i++) {
+            for (int j = 1; j < n; j++) {
                if(i!=j){ 
                 double M = UB[i]-LB[j]+travel_time[i][j];
                 IloLinearNumExpr expr_3 = model.linearNumExpr();
                 expr_3.addTerm(t[i], 1);
                 expr_3.addTerm(t[j], -1);
                 expr_3.addTerm(y[i][j],M);
-                model.addGe(expr_3, UB[i]-LB[j]);
+                model.addLe(expr_3, UB[i]-LB[j]);
                }
             
             }
@@ -88,16 +90,21 @@ public class ATSPTW_Model {
         IloLinearNumExpr expr_4 = model.linearNumExpr();
         for (int i = 0; i <n; i++) {
            expr_4.addTerm(y[i][j],1);
-           model.addEq(expr_4, 1);
-           }}
+           
+           }
+        model.addEq(expr_4, 1);
+         }
          
          // Constrain (5)
          for (int i = 1; i <=n-1; i++) {
         IloLinearNumExpr expr_5 = model.linearNumExpr();
         for (int j = 0; j <n; j++) {
            expr_5.addTerm(y[i][j],1);
-           model.addEq(expr_5, 1);
-           }}
+           
+           }
+        model.addEq(expr_5, 1);
+         
+         }
         
         // Constrain (6)
         for (int i = 1; i <= n - 1; i++) {
@@ -147,16 +154,16 @@ public class ATSPTW_Model {
             System.out.println();
 
             System.out.println("The variables t_{i} ");
-            for (int i = 0; i <= n; i++) {
+            for (int i = 1; i <= n-1; i++) {
                 System.out.println("----> Node: " + i + " is visited at time " + model.getValue(t[i]) + "<---" + t[i].getName());
             }
             System.out.println("The variables y_{ij} ");
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
-                    //if (model.getValue(y[i][j])!=0 && i!=j) {
+                    if ( i!=j) {
                     System.out.println("---->" + y[i][j].getName() + " " + model.getValue(y[i][j]));
 
-                    //}
+                    }
                 }
             }
 
