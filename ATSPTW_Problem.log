@@ -1,14 +1,18 @@
 Tried aggregator 1 time.
-MIP Presolve eliminated 14 rows and 0 columns.
-Reduced MIP has 70 rows, 71 columns, and 266 nonzeros.
-Reduced MIP has 63 binaries, 0 generals, 0 SOSs, and 0 indicators.
-Presolve time = 0.00 sec. (0.15 ticks)
-Found incumbent of value 1005.800000 after 0.00 sec. (0.24 ticks)
-Probing time = 0.00 sec. (0.13 ticks)
-Tried aggregator 1 time.
-Reduced MIP has 70 rows, 71 columns, and 266 nonzeros.
-Reduced MIP has 63 binaries, 0 generals, 0 SOSs, and 0 indicators.
+MIP Presolve eliminated 15 rows and 1 columns.
+Reduced MIP has 70 rows, 64 columns, and 252 nonzeros.
+Reduced MIP has 56 binaries, 0 generals, 0 SOSs, and 0 indicators.
 Presolve time = 0.00 sec. (0.14 ticks)
+Found incumbent of value 1005.800000 after 0.00 sec. (0.22 ticks)
+Probing time = 0.00 sec. (0.12 ticks)
+Cover probing fixed 0 vars, tightened 9 bounds.
+Tried aggregator 1 time.
+MIP Presolve eliminated 1 rows and 0 columns.
+MIP Presolve modified 96 coefficients.
+Reduced MIP has 69 rows, 64 columns, and 250 nonzeros.
+Reduced MIP has 56 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.13 ticks)
+Probing fixed 0 vars, tightened 7 bounds.
 Probing time = 0.00 sec. (0.14 ticks)
 Clique table members: 35.
 MIP emphasis: balance optimality and feasibility.
@@ -19,106 +23,50 @@ Root relaxation solution time = 0.00 sec. (0.12 ticks)
         Nodes                                         Cuts/
    Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
 
-*     0+    0                         1005.8000        5.8000        7   99.42%
-*     0+    0                            5.8000        5.8000        7    0.00%
-      0     0        cutoff              5.8000        5.8000        7    0.00%
-      0     0        cutoff              5.8000        5.8000        7    0.00%
-Elapsed time = 0.01 sec. (0.98 ticks, tree = 0.00 MB, solutions = 2)
+*     0+    0                         1005.8000        8.1000       10   99.19%
+*     0+    0                           10.2000        8.1000       10   20.59%
+      0     0        8.8000    13       10.2000        8.8000       10   13.73%
+      0     0        cutoff             10.2000                     30    0.00%
+Elapsed time = 0.02 sec. (1.12 ticks, tree = 0.00 MB, solutions = 2)
 
 Root node processing (before b&c):
-  Real time             =    0.01 sec. (0.98 ticks)
+  Real time             =    0.02 sec. (1.12 ticks)
 Parallel b&c, 4 threads:
   Real time             =    0.00 sec. (0.00 ticks)
   Sync time (average)   =    0.00 sec.
   Wait time (average)   =    0.00 sec.
                           ------------
-Total (root+branch&cut) =    0.01 sec. (0.98 ticks)
+Total (root+branch&cut) =    0.02 sec. (1.12 ticks)
+Matrix of time distances is
 Node: 0
- 100.0  5.5  4.2  2.6  2.4  1.3  2.5  4.3 
+ 1.7976931348623157E308  5.5  4.2  2.6  2.4  1.3  2.5  4.3 
 Node: 1
- 4.7  100.0  3.7  2.1  5.1  6.0  7.2  9.0 
+ 4.7  1.7976931348623157E308  3.7  2.1  5.1  6.0  7.2  9.0 
 Node: 2
- 4.2  4.5  100.0  1.6  3.2  5.5  6.7  8.5 
+ 4.2  4.5  1.7976931348623157E308  1.6  3.2  5.5  6.7  8.5 
 Node: 3
- 2.6  2.9  1.6  100.0  3.0  3.9  5.1  6.9 
+ 2.6  2.9  1.6  1.7976931348623157E308  3.0  3.9  5.1  6.9 
 Node: 4
- 3.8  4.1  2.8  1.2  100.0  5.1  6.3  8.1 
+ 3.8  4.1  2.8  1.2  1.7976931348623157E308  5.1  6.3  8.1 
 Node: 5
- 3.9  7.4  6.1  4.5  3.3  100.0  1.2  3.0 
+ 3.9  7.4  6.1  4.5  3.3  1.7976931348623157E308  1.2  3.0 
 Node: 6
- 3.5  7.0  5.7  4.1  2.9  1.2  100.0  2.3 
+ 3.5  7.0  5.7  4.1  2.9  1.2  1.7976931348623157E308  2.3 
 Node: 7
- 5.8  9.3  8.0  6.4  5.2  3.0  2.3  100.0 
+ 5.8  9.3  8.0  6.4  5.2  3.0  2.3  1.7976931348623157E308 
 
 Solution status = Optimal
 
 Problem size: 8
-Matrix of time distances is
 
-Makespan 5.8
+Makespan 10.2
 
 The variables t_{i} 
-----> Node: 1 is visited at time 0.0<---t[1]
-----> Node: 2 is visited at time 0.0<---t[2]
-----> Node: 3 is visited at time 0.0<---t[3]
-----> Node: 4 is visited at time 0.0<---t[4]
-----> Node: 5 is visited at time 0.0<---t[5]
-----> Node: 6 is visited at time 0.0<---t[6]
-----> Node: 7 is visited at time 0.0<---t[7]
-The variables y_{ij} 
----->y[0][1] 0.0
----->y[0][2] 0.0
----->y[0][3] 0.0
----->y[0][4] 0.0
----->y[0][5] 0.0
----->y[0][6] 0.0
----->y[0][7] 0.0
----->y[1][0] 0.0
----->y[1][2] 0.0
----->y[1][3] 0.0
----->y[1][4] 0.0
----->y[1][5] 0.0
----->y[1][6] 0.0
----->y[1][7] 0.0
----->y[2][0] 0.0
----->y[2][1] 0.0
----->y[2][3] 0.0
----->y[2][4] 0.0
----->y[2][5] 0.0
----->y[2][6] 0.0
----->y[2][7] 0.0
----->y[3][0] 0.0
----->y[3][1] 0.0
----->y[3][2] 0.0
----->y[3][4] 0.0
----->y[3][5] 0.0
----->y[3][6] 0.0
----->y[3][7] 0.0
----->y[4][0] 0.0
----->y[4][1] 0.0
----->y[4][2] 0.0
----->y[4][3] 0.0
----->y[4][5] 0.0
----->y[4][6] 0.0
----->y[4][7] 0.0
----->y[5][0] 0.0
----->y[5][1] 0.0
----->y[5][2] 0.0
----->y[5][3] 0.0
----->y[5][4] 0.0
----->y[5][6] 0.0
----->y[5][7] 0.0
----->y[6][0] 0.0
----->y[6][1] 0.0
----->y[6][2] 0.0
----->y[6][3] 0.0
----->y[6][4] 0.0
----->y[6][5] 0.0
----->y[6][7] 0.0
----->y[7][0] 0.0
----->y[7][1] 0.0
----->y[7][2] 0.0
----->y[7][3] 0.0
----->y[7][4] 0.0
----->y[7][5] 0.0
----->y[7][6] 0.0
+ Tour from Node 0 begins at time 0.0 <--- t[0]
+----> Node: 1 is visited at time 5.5 <--- t[1]
+----> Node: 2 is visited at time 4.2 <--- t[2]
+----> Node: 3 is visited at time 2.5999999999999996 <--- t[3]
+----> Node: 4 is visited at time 2.4 <--- t[4]
+----> Node: 5 is visited at time 1.3 <--- t[5]
+----> Node: 6 is visited at time 2.5 <--- t[6]
+----> Node: 7 is visited at time 4.3 <--- t[7]
