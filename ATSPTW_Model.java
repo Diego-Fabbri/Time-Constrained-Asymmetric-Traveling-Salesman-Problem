@@ -80,7 +80,7 @@ public class ATSPTW_Model {
                     expr_3.addTerm(t[j], -1);
                     expr_3.addTerm(y[i][j], M);
                     model.addLe(expr_3, UB[i] - LB[j]);
-                }
+               }
 
             }
         }
@@ -123,8 +123,24 @@ public class ATSPTW_Model {
         for (int i = 1; i <= n - 1; i++) {
             model.addLe(t[i], UB[i]);
         }
+        
+        // Constrain (8)
+        IloLinearNumExpr expr_8 = model.linearNumExpr();
+        for (int i = 1; i <= n - 1; i++) {
+            expr_8.addTerm(y[i][0], 1);
+        }
+            model.addEq(expr_8, 1);
+            
+        // Constrain (9)
+        IloLinearNumExpr expr_9 = model.linearNumExpr();
+        for (int j = 1; j <= n - 1; j++) {
+            expr_9.addTerm(y[0][j], 1);
+        }
+            model.addEq(expr_9, 1);
 
-    }
+        }
+
+    
 
     public void solveModel() throws IloException {
         addVariables();
@@ -147,7 +163,7 @@ public class ATSPTW_Model {
             System.out.println();
             System.out.println("Solution status = " + model.getStatus());
             System.out.println();
-            System.out.println("Problem size: " + travel_time.length);
+            System.out.println("Problem size: " + n);
 
             System.out.println();
             System.out.println("Makespan " + model.getObjValue());
