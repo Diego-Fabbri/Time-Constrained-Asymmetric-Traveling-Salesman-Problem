@@ -1,0 +1,140 @@
+\documentclass[a4paper,12pt,titlepage]{article}
+\usepackage[utf8]{inputenc} 
+\usepackage{tikz,pgf}
+\usepackage{indentfirst}
+\usepackage{amsfonts}
+\usepackage[english]{babel}
+%Url e Bookmarks of output PDF 
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+%	pdftitle={Document title},
+	bookmarks=true,
+	%pdfpagemode=FullScreen,
+}
+\usepackage{rotating}
+\usepackage{tabularx}
+\usepackage{multirow} 
+\usepackage{lscape}
+\usepackage{tikz}
+%to insert PDF files
+\usepackage[final]{pdfpages}
+%--Packages--
+\usepackage{eurosym}
+\usepackage{graphicx} \usepackage{verbatim}
+\usepackage{graphics}
+\usepackage{tikz,pgf}
+\usepackage{indentfirst}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsmath,amssymb,amsthm,textcomp}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{verbatim}
+\usepackage{amsmath,amssymb,mathrsfs}
+\usepackage{xcolor}
+\usepackage{graphicx,color,listings}
+\frenchspacing 
+\usepackage{geometry}
+\usepackage{rotating}
+\usepackage{caption}
+\usepackage{xcolor}
+\usepackage{listings}
+%Cool maths printing
+\usepackage{amsmath}
+%PseudoCode
+\usepackage{algorithm2e}
+
+
+\begin{document}
+\section*{Asymmetric Traveling Salesman Problem with Time Windows (ATSPTW)}
+\subsection*{Sets}
+Let $G = (V, A)$ be a complete graph where: \\
+-$V=\left \lbrace 0,1, …, n\right\rbrace$ = set of the nodes;\\
+-$A=\left \lbrace(i, j): i \neq j; i,j\in V\right\rbrace$ = set of undirected arcs;
+\subsection*{Parameters:}
+-$u_i$ = upper bound of a specified time window for node $i$ ($u_i\geq 0$);\,\,\,\ $\forall i\in V$\\
+-$t_{ij}$ = the shortest time required to travel from node $i$ to node $j$;
+\,\,\,\ $\forall(i,j)\in A$\\
+Every node $i\in V$ represents a node with an associated time window:\\
+$TW_i=[l_i, u_i]$, where
+$l_i$ is the  \textit{release time} and $u_i$ the \textit{deadline} of node $i\in V$. \\
+Each arc $(i, j) \in A$ has
+an associated a travel time $t_{ij} \geq 0$.\\
+We assume they also have a distance  $d_{ij}$ representing a distance from node $i$ to node $j$, hence travel time $t_{ij} = \dfrac{d_{ij}}{v}$ $\forall (i,j)\in A$, where $v$ is a speed.\\
+In order to make the model easier, if a service time is needed at a node $i$, this time will be included in the travel time $t_{ij}$’s.\\
+TSPTW is named as symmetric if $t_{ij}= t_{ji}$ and asymmetric if $t_{ij} \neq t_{ji}$.
+
+\subsection*{Variables:}
+-$t_i$ = 
+time instant in which node $i$ is visited;\,\,\,\ $\forall i\in V$\\
+-$t_{n+1}$ =  time at which tour is completed;\\
+$$-y_{ij}=
+\bigg \{
+\begin{array}{ll}
+1\quad \text{if the traveler goes from node $i$ to node $j$}\\
+0\quad \text{otherwise} \\
+\end{array}
+$$
+\newpage
+
+\subsection*{Math Formulation}
+\begin{equation}
+min\,\,t_{n+1}
+\tag{1}
+\end{equation}
+\begin{equation}
+t_i\geq t_{0i} \cdot y_{0i}\qquad i=1,2,...,n
+\tag{2}
+\end{equation}
+\begin{equation}
+t_i-t_{j}+t_{ij} \leq M_{ij}\cdot(1-y_{ij}) \qquad \forall i,j=1,2,...,n : i\neq j
+\tag{3}
+\end{equation}
+\begin{equation}
+\sum_{i=0\,:\,i\neq j}^{n}y_{ij} = 1\qquad j=1,2,...,n
+\tag{4}
+\end{equation}
+\begin{equation}
+\sum_{j=0\,:\,j\neq i}^{n}y_{ij} = 1\qquad i=1,2,...,n
+\tag{5}
+\end{equation}
+\begin{equation}
+t_i +t_{i0}\leq t_{n+1} \qquad i=1,2,...,n
+\tag{6}
+\end{equation}
+\begin{equation}
+l_i\leq t_i \leq u_i \qquad i=1,2,...,n
+\tag{7}
+\end{equation}
+\begin{equation}
+	\sum_{i=1}^{n}y_{i0} = 1
+	\tag{8}
+\end{equation}
+\begin{equation}
+	\sum_{j=1}^{n}y_{0j} = 1
+	\tag{9}
+\end{equation}
+\begin{equation}
+y_{ij} \in \left\lbrace 0,1\right\rbrace \qquad \forall (i,j)\in A
+\tag{10}
+\end{equation}
+\begin{equation}
+t_i \geq 0 \qquad \forall i=0,1,...,n+1
+\tag{11}
+\end{equation}
+\\
+where $ M_{ij} = u_i - l_j + t_{ij}$, so (3) becomes:
+\begin{equation*}
+t_i-t_j + (u_i-l_j+t_{ij})\cdot y_{ij} \leq u_i - l_j \qquad \forall i,j=1,2,...,n : i\neq j
+\end{equation*}
+
+\end{document}
