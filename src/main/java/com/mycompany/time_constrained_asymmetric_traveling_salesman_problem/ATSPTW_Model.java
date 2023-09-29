@@ -178,7 +178,17 @@ public class ATSPTW_Model {
                     System.out.println("----> Node: " + i + " is visited at time " + model.getValue(t[i]) + " <--- " + t[i].getName());
                 }
             }
-        } else {
+            System.out.println();
+            System.out.println("The variables y_{ij} ");            
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    if (i!=j && model.getValue(y[i][j]) != 0 ){
+                System.out.println(y[i][j].getName()+" = " +  model.getValue(y[i][j]));
+                    }
+            }  
+            }
+            }
+    else {
             System.out.println();
             System.out.println("The problem status is: " + model.getStatus());
         }
