@@ -16,7 +16,7 @@ Probing time = 0.00 sec. (0.15 ticks)
 Clique table members: 37.
 MIP emphasis: balance optimality and feasibility.
 MIP search method: dynamic search.
-Parallel mode: deterministic, using up to 4 threads.
+Parallel mode: deterministic, using up to 8 threads.
 Root relaxation solution time = 0.00 sec. (0.17 ticks)
 
         Nodes                                         Cuts/
@@ -28,24 +28,25 @@ Root relaxation solution time = 0.00 sec. (0.17 ticks)
 *     0+    0                           27.3000        8.8000       31   67.77%
       0     0        8.8000    15       27.3000       Cuts: 9       44   67.77%
 *     0+    0                           26.2000        8.8000       44   66.41%
-*     0+    0                           22.0000        8.8000       44   60.00%
-*     0+    0                           22.0000        9.4000       44   57.27%
-      0     2        8.8000    11       22.0000        9.4000       44   57.27%
-Elapsed time = 0.05 sec. (5.17 ticks, tree = 0.01 MB, solutions = 4)
-*   350+  148                           21.5000        9.4000     1352   56.28%
+*     0+    0                           23.1000        8.8000       44   61.90%
+*     0+    0                           23.1000        8.8000       44   61.90%
+      0     2        8.8000    11       23.1000        8.8000       44   61.90%
+Elapsed time = 0.05 sec. (5.19 ticks, tree = 0.01 MB, solutions = 4)
+*   478+  191                           22.0000        9.3377     2226   57.56%
+*  1007+  274                           21.5000        9.7851     4136   54.49%
 
-Implied bound cuts applied:  134
+Implied bound cuts applied:  140
 Flow cuts applied:  1
-Mixed integer rounding cuts applied:  10
+Mixed integer rounding cuts applied:  11
 
 Root node processing (before b&c):
   Real time             =    0.05 sec. (5.13 ticks)
-Parallel b&c, 4 threads:
-  Real time             =    0.12 sec. (41.96 ticks)
-  Sync time (average)   =    0.01 sec.
+Parallel b&c, 8 threads:
+  Real time             =    0.19 sec. (27.61 ticks)
+  Sync time (average)   =    0.04 sec.
   Wait time (average)   =    0.00 sec.
                           ------------
-Total (root+branch&cut) =    0.17 sec. (47.09 ticks)
+Total (root+branch&cut) =    0.23 sec. (32.74 ticks)
 Matrix of time distances is
 Node: 0
  1.7976931348623157E308  5.5  4.2  2.6  2.4  1.3  2.5  4.3 
@@ -68,14 +69,24 @@ Solution status = Optimal
 
 Problem size: 8
 
-Makespan 21.500000000000068
+Makespan 21.500000000000018
 
 The variables t_{i} 
  Tour from Node 0 begins at time 0.0 <--- t[0]
-----> Node: 1 is visited at time 16.800000000000068 <--- t[1]
-----> Node: 2 is visited at time 12.300000000000068 <--- t[2]
-----> Node: 3 is visited at time 10.700000000000045 <--- t[3]
-----> Node: 4 is visited at time 9.5 <--- t[4]
+----> Node: 1 is visited at time 16.80000000000002 <--- t[1]
+----> Node: 2 is visited at time 12.299999999999997 <--- t[2]
+----> Node: 3 is visited at time 13.900000000000043 <--- t[3]
+----> Node: 4 is visited at time 9.49999999999989 <--- t[4]
 ----> Node: 5 is visited at time 1.2999999999999545 <--- t[5]
-----> Node: 6 is visited at time 6.600000000000023 <--- t[6]
-----> Node: 7 is visited at time 4.2999999999999545 <--- t[7]
+----> Node: 6 is visited at time 6.599999999999912 <--- t[6]
+----> Node: 7 is visited at time 4.2999999999998435 <--- t[7]
+
+The variables y_{ij} 
+y[0][5] = 1.0
+y[1][0] = 1.0
+y[2][3] = 1.0
+y[3][1] = 1.0
+y[4][2] = 1.0
+y[5][7] = 1.0
+y[6][4] = 1.0
+y[7][6] = 1.0
